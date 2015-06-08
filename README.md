@@ -19,8 +19,8 @@ The flexboxfixer plugin will add the equivalent standard declarations (while lea
 
 ```css
 .foo {
-  display: flex;
   display: -webkit-box;
+  display: flex;
   -webkit-box-pack: justify;
   justify-content: space-between;
 }
@@ -30,6 +30,11 @@ The flexboxfixer plugin will add the equivalent standard declarations (while lea
 
 ```js
 postcss([ require('postcss-flexboxfixer') ])
+```
+
+To use in Node.js scripts:
+```
+npm install postcss-flexboxfixer
 ```
 
 See [PostCSS] docs for examples for your environment.
