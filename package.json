@@ -1,6 +1,6 @@
 {
     "name": "postcss-flexboxfixer",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "PostCSS plugin to rewrite code with existing vendor prefixes for flexbox code (especially -webkit-) and add equivalent un-prefixed CSS",
     "keywords": ["postcss", "css", "postcss-plugin", "prefixes", "-webkit-", "unprefix", "flexbox"],
     "author": "Hallvord R. M. Steen <hsteen@mozilla.com>",
