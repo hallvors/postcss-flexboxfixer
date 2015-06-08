@@ -1,50 +1,35 @@
-# PostCSS Plugin Boilerplate
+# PostCSS Flexboxfixer [![Build Status][ci-img]][ci]
 
-<img align="right" width="135" height="95"
-     title="Philosopher’s stone, logo of PostCSS"
-     src="http://postcss.github.io/postcss/logo-leftp.png">
+[PostCSS] plugin to rewrite code with existing vendor prefixes for flexbox (especially -webkit- prefixed) and syntax based on older versions of the CSS specification, and add equivalent un-prefixed CSS.
 
-Boilerplate repoitory to start PostCSS plugin by few steps.
+[PostCSS]: https://github.com/postcss/postcss
+[ci-img]:  https://travis-ci.org/hallvors/postcss-flexboxfixer.svg
+[ci]:      https://travis-ci.org/hallvors/postcss-flexboxfixer
 
-1. Clone this reposity:
+For example, here's some CSS full of vendor-specific code and syntax based on older versions of the CSS specifications:
 
-   ```sh
-  git clone https://github.com/postcss/postcss-plugin-boilerplate.git
-   ```
+```css
+.foo {
+  display: -webkit-box;
+  -webkit-box-pack: justify;
+}
+```
 
-2. Execute wizard script. it will ask you a few question and will fill all
-   files with your data.
+The flexboxfixer plugin will add the equivalent standard declarations (while leaving the old CSS for backwards compatibility with older WebKit-based browsers):
 
-    ```sh
-   ./postcss-plugin-boilerplate/start
-    ```
+```css
+.foo {
+  display: flex;
+  display: -webkit-box;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+}
+```
 
-3. Now it is repository of your plugin with clean Git history.
-   Create GitHub repositpory and push your project there.
+## Usage
 
-4. Add your project to [Travis CI](https://travis-ci.org).
+```js
+postcss([ require('postcss-flexboxfixer') ])
+```
 
-5. Install npm packages:
-
-    ```sh
-   npm install
-    ```
-
-6. Write some code to `index.js` and tests to `test/test.js`.
-
-7. Check your code:
-
-    ```sh
-   npm test
-    ```
-
-8. Add input and output CSS examples to `README.md`. Add options descriptions
-   if your plugin has them.
-
-9. Fill `CHANGELOG.md` with initial version and release it to npm.
-
-10. Fork [PostCSS](https://github.com/postcss/postcss), add your plugin to
-   [Plugins section](https://github.com/postcss/postcss#plugins) in `README.md`
-   and send a pull request.
-
-11. Follow [@PostCSS](https://twitter.com/postcss) to get latest updates.
+See [PostCSS] docs for examples for your environment.

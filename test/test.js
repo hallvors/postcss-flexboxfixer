@@ -13,12 +13,15 @@ var test = function (input, output, opts, done) {
     });
 };
 
-describe('PLUGIN_NAME', function () {
+describe('postcss-unprefixer', function () {
 
-    /* Write tests here
+    /* Write tests here */
 
-    it('does something', function (done) {
-        test('a{ }', 'a{ }', { }, done);
-    });*/
+    it('rewriting -webkit-box', function (done) {
+        test('b{display: -webkit-box;}', 'b{display: flex;display: -webkit-box;}', {}, done);
+    });
+    it('rewriting -webkit-box-pack', function (done) {
+        test('b{-webkit-box-pack: justify;}', 'b{justify-content: space-between;-webkit-box-pack: justify;}', {}, done);
+    });
 
 });
