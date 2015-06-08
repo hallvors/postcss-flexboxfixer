@@ -1,6 +1,6 @@
 var postcss = require( 'postcss' );
 
-module.exports = postcss.plugin( 'postcss-unprefixer', function( opts ) {
+module.exports = postcss.plugin( 'postcss-flexboxfixer', function( opts ) {
     opts = opts || {};
 
     function getValueForProperty(parent, name, prefixAgnostic){
