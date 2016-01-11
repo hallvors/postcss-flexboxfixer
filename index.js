@@ -5,7 +5,7 @@ module.exports = postcss.plugin( 'postcss-flexboxfixer', function( opts ) {
 
     function getValueForProperty(parent, name, prefixAgnostic){
         var retValue;
-        parent.eachDecl(name, function(decl){
+        parent.walkDecls(name, function(decl){
             if(name === decl.prop){
                 retValue = decl.value;
             }
@@ -115,7 +115,7 @@ module.exports = postcss.plugin( 'postcss-flexboxfixer', function( opts ) {
 
 
     return function( css ) {
-        css.eachDecl( /(^-webkit-box|^-webkit-flex|^display$)/, function( decl ) {
+        css.walkDecls( /(^-webkit-box|^-webkit-flex|^display$)/, function( decl ) {
             if(decl.prop === 'display' && decl.value.indexOf('-webkit-') !== 0){
                 /* if it's not a -webkit- prefixed display property, we don't worry about it */
                 return;

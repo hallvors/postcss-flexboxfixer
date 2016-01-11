@@ -1,16 +1,16 @@
 {
     "name": "postcss-flexboxfixer",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "PostCSS plugin to rewrite code with existing vendor prefixes for flexbox code (especially -webkit-) and add equivalent un-prefixed CSS",
     "keywords": ["postcss", "css", "postcss-plugin", "prefixes", "-webkit-", "unprefix", "flexbox"],
     "author": "Hallvord R. M. Steen <hsteen@mozilla.com>",
-    "license": "MPL",
+    "license": "MPL-2.0",
     "repository": {
         "type": "git",
         "url":  "https://github.com/hallvors/postcss-flexboxfixer.git"
     },
     "dependencies": {
-        "postcss": "^4.1.9"
+        "postcss": "^5.0.0"
     },
     "devDependencies": {
         "gulp-eslint": "^0.12.0",
