@@ -16,15 +16,15 @@ module.exports = postcss.plugin( 'postcss-flexboxfixer', function( opts ) {
         return retValue;
     }
 
+    function fixPrefix(string){
+        return string.replace(/^-\w+-/, '');
+    }
 
     function createFixupFlexboxDeclaration( propname, value, parent ) {
         // remove -webkit- prefixing from names, values
-        if ( /^-webkit-/.test( propname ) ) {
-            propname = propname.substr( 8 );
-        }
-        if ( /^-webkit-/.test( value ) ) {
-            value = value.substr( 8 );
-        }
+
+        propname = fixPrefix(propname);
+        value = fixPrefix(value);
 
         var mappings = {
             'display': {
@@ -115,8 +115,8 @@ module.exports = postcss.plugin( 'postcss-flexboxfixer', function( opts ) {
 
 
     return function( css ) {
-        css.walkDecls( /(^-webkit-box|^-webkit-flex|^display$)/, function( decl ) {
-            if(decl.prop === 'display' && decl.value.indexOf('-webkit-') !== 0){
+        css.walkDecls( /(^-\w+-box|^-\w+-flex|^display$)/, function( decl ) {
+            if(decl.prop === 'display' && !/^-\w+-/.test(decl.value)){
                 /* if it's not a -webkit- prefixed display property, we don't worry about it */
                 return;
             }
