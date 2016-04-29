@@ -21,7 +21,7 @@ module.exports = postcss.plugin( 'postcss-flexboxfixer', function( opts ) {
     }
 
     function createFixupFlexboxDeclaration( propname, value, parent ) {
-        // remove -webkit- prefixing from names, values
+        // remove vendor prefixes from names, values
 
         propname = fixPrefix(propname);
         value = fixPrefix(value);
@@ -117,7 +117,7 @@ module.exports = postcss.plugin( 'postcss-flexboxfixer', function( opts ) {
     return function( css ) {
         css.walkDecls( /(^-\w+-box|^-\w+-flex|^display$)/, function( decl ) {
             if(decl.prop === 'display' && !/^-\w+-/.test(decl.value)){
-                /* if it's not a -webkit- prefixed display property, we don't worry about it */
+                /* if it's not a vendor prefixed display property, we don't worry about it */
                 return;
             }
             var fixedDecl = createFixupFlexboxDeclaration(decl.prop, decl.value, decl.parent);
