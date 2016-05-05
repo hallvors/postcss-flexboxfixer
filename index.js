@@ -5,13 +5,8 @@ module.exports = postcss.plugin( 'postcss-flexboxfixer', function( opts ) {
 
     function getValueForProperty(parent, name, prefixAgnostic){
         var retValue;
-        parent.walkDecls(name, function(decl){
-            if(name === decl.prop){
-                retValue = decl.value;
-            }
-            if(prefixAgnostic && postcss.vendor.unprefixed(decl.prop) === name){
-                retValue = decl.value;
-            }
+        parent.walkDecls(prefixAgnostic ? new RegExp('^(?:-\\w-)?' + name + '$') : name, function(decl) {
+            retValue = decl.value;
         });
         return retValue;
     }
