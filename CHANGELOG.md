@@ -6,6 +6,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased][unreleased]
 ### Changed
 
+## [0.0.5] - 2016-05-12
+### Changed
+- Various fixes from @gucong3000 on GitHub
+
 ## [0.0.4] - 2016-01-11
 ### Changed
 - Update to postcss 5.x, avoid deprecated eachDecl function
