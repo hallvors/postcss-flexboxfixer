@@ -59,5 +59,8 @@ describe('postcss-flexboxfixer', function () {
     it('rewriting -ms-inline-flexbox', function (done) {
         test('b{display: -ms-inline-flexbox;}', 'b{display: -ms-inline-flexbox;display: inline-flex;}', {}, done);
     });
+    it('rewriting multiple prefixes', function (done) {
+        test('b{-webkit-flex-flow: row;-ms-flex-flow: row;-webkit-box-ordinal-group: 1;-webkit-order: 0;-moz-box-ordinal-group: 1;-ms-flex-order: 0;-moz-box-flex: 0;}', 'b{-webkit-flex-flow: row;-ms-flex-flow: row;-webkit-box-ordinal-group: 1;-webkit-order: 0;-moz-box-ordinal-group: 1;-ms-flex-order: 0;-moz-box-flex: 0;flex: 0 auto;}', {}, done);
+    });
 
 });
